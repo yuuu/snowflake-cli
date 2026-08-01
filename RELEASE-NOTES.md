@@ -29,6 +29,7 @@
 * Added `snow dbt copy`, which copies files between a local directory and a stage (or between stages) for a dbt project. It is an alias of `snow stage copy` and supports the same paths and options (`--recursive`, `--overwrite`, `--parallel`, `--auto-compress`, `--refresh`).
 * `snow app events` now surfaces app health telemetry for Snowflake App Runtime projects. `--type log|metric|lifecycle` selects the stream (default `log`); `--since` / `--until` accept relative shorthand (e.g. `30m`, `6h`, `2d`) or absolute UTC timestamps and switch logs to the historical event table, while `metric` and `lifecycle` are always historical and default to the last hour. `--metric cpu|memory|network` narrows metric output and `--raw` emits unconverted values (bytes, cores). The bare `snow app events` live log tail is unchanged.
 * `snow dcm deploy`, `snow dcm purge`, `snow dcm plan`, `snow dcm preview`, `snow dcm refresh`, and `snow dcm test` now show live, per-step progress as an interactive checklist instead of a single generic spinner.
+* `snow connection add` now supports `--client-store-temporary-credential`, which writes `client_store_temporary_credential = true` to the new connection in config.toml.
 
 ## Fixes and improvements
 * `snow dcm` commands now summarize the files being uploaded as a tree beneath the upload step, instead of listing every file on its own line.
